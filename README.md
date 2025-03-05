@@ -4,16 +4,15 @@ Smart Home Monitoring is a project designed to track and analyze energy consumpt
 Unfortunately the frontend and the backend could not be integrated together.
 
 The team includes:
-1. Preksha Jayakumar    
-    **GitHub:** prekshajayakumar
+1. Preksha Jayakumar **GitHub:** prekshajayakumar
 
 2. Preethi Kommi
     **GitHub:** preethikommi
 
-3. Suraj Shenoy
+4. Suraj Shenoy
     **GitHub:** surajshenoy15
 
-4. Ritwik Radesh
+5. Ritwik Radesh
     **GitHub:** ritwikradesh7
 
 **Tech Stack**
