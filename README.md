@@ -27,8 +27,8 @@ React.js
 *Database:*
 MongoDB Local
 
-*Cloud & Deployment:*
-Azure & Docker
+Deployment:*
+Docker
 
 
 **Prerequisites**
@@ -37,7 +37,7 @@ Java 17+
 Node.js & npm
 MongoDB (Local)
 Docker (For deployment)
-Azure account
+
 
 
 **Installation**
