@@ -51,7 +51,10 @@ cd Smart_Home_Monitoring/backend
 ```
 
 2. Build and run the backend:
-`./gradlew bootRun`
+```cmd
+docker build -t smart-home-backend .
+docker run -p 8080:8080 smart-home-backend
+```
 
 *Frontend Setup*
 
