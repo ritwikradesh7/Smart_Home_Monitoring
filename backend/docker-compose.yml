@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  springboot-app:
+    build: .
+    container_name: my-springboot-app
+    depends_on: []
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://host.docker.internal:27017/mynewdatabase  # ✅ Connect to local MongoDB
+      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_ID: 106756614759-7vv3rpmrpuvgi8i5o1nl554dsb33ohd2.apps.googleusercontent.com
+      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_SECRET: 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
+    restart: always
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge

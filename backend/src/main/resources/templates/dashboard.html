@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        table { width: 80%; margin: 20px auto; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .alert { color: red; font-weight: bold; }
+        .safe { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome, <span th:text="${user.name}"></span></h1>
+    <p>Email: <span th:text="${user.email}"></span></p>
+    <p>Age: <span th:text="${user.age}"></span></p>
+    <p>User ID: <span th:text="${user.id}"></span></p>
+
+    <!-- 🔹 Devices Section -->
+    <h2>Your Devices</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Device Name</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Power (W)</th>
+                <th>Energy (kWh)</th>
+                <th>Last Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="device : ${devices}">
+                <td th:text="${device.deviceName}"></td>
+                <td th:text="${device.deviceType}"></td>
+                <td th:text="${device.deviceStatus}"></td>
+                <td th:text="${device.powerConsumption}"></td>
+                <td th:text="${device.energyConsumption_kWh}"></td>
+                <td th:text="${device.lastDataUpdate}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 🔹 Energy Budget Section -->
+    <h2>Your Energy Budgets</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Budget ID</th>
+                <th>Energy Budget (kWh)</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Alert Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="budget : ${energyBudgets}">
+                <td th:text="${budget.budgetID}"></td>
+                <td th:text="${budget.energyBudget_kWh}"></td>
+                <td th:text="${budget.budgetStartDate}"></td>
+                <td th:text="${budget.budgetEndDate}"></td>
+                <td>
+                    <span th:if="${budget.alertStatus}" class="alert">Budget Exceeded!</span>
+                    <span th:unless="${budget.alertStatus}" class="safe">Within Budget</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 🔹 Alert Section (Visible only if budget exceeded) -->
+    <div th:if="${budgetExceeded}" class="alert">
+        <h2>⚠️ Alert: Energy Budget Exceeded! ⚠️</h2>
+        <p>You have exceeded your allocated energy budget. Please take necessary actions to reduce consumption.</p>
+    </div>
+
+</body>
+</html>
